@@ -51,7 +51,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     );
     localStorage.setItem("accessToken", data.data.token);
     setUser(data.data.user);
-    router.push("/dashbaord");
+    router.push("/dashboard");
   };
 
   const register = async (

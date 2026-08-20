@@ -1,3 +1,5 @@
+"use client";
+
 import ProtectedRoute from "@/components/ProtectedRoute";
 import StatusBadge from "@/components/StatusBadge";
 import api from "@/lib/api";
@@ -207,4 +209,3 @@ export default function JobPage() {
     </ProtectedRoute>
   );
 }
-

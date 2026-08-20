@@ -1,69 +1,175 @@
-import Image from "next/image";
+import Link from "next/link";
 
-export default function Home() {
+const FEATURES = [
+  {
+    icon: "📨",
+    title: "Track Applications",
+    desc: "Log every job you apply to in one place",
+  },
+  {
+    icon: "🎙️",
+    title: "Interview Pipeline",
+    desc: "Move applications through 5 stages",
+  },
+  {
+    icon: "🔍",
+    title: "Search & Filter",
+    desc: "Find any application instantly",
+  },
+  {
+    icon: "📊",
+    title: "Dashboard Analytics",
+    desc: "See your success rate and pipeline health",
+  },
+  {
+    icon: "📎",
+    title: "Resume Storage",
+    desc: "Attach CVs to each application",
+  },
+  {
+    icon: "📧",
+    title: "Email Notifications",
+    desc: "Get notified on status changes",
+  },
+];
+
+export default function LandingPage() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen bg-white">
+      {/* Navbar */}
+      <nav className="border-b border-gray-100 px-6 py-4 flex justify-between items-center max-w-6xl mx-auto">
+        <h1 className="text-xl font-bold text-blue-600">📋 Job Tracker</h1>
+        <div className="flex items-center gap-3">
+          <Link
+            href="/login"
+            className="text-gray-600 hover:text-gray-800 text-sm font-medium"
+          >
+            Sign in
+          </Link>
+          <Link
+            href="/register"
+            className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
+          >
+            Get Started Free
+          </Link>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+      </nav>
+
+      {/* Hero */}
+      <section className="max-w-4xl mx-auto px-6 py-24 text-center">
+        <h2 className="text-5xl font-bold text-gray-900 leading-tight mb-6">
+          Track your job search
+        </h2>
+        <p>
+          Stop losing search of where you applied. Job Tracker keeps your entire
+          job search organized in one clean dashboard.
+        </p>
+        <div className="flex justify-center gap-4">
+          <Link
+            href="/register"
+            className="bg-blue-600 text-white px-8 py-3 rounded-xl font-semibold hover:bg-blue-700 transition-colors text-lg"
+          >
+            Start Tracking Free →
+          </Link>
+          <Link
+            href="/login"
+            className="border border-gray-300 text-gray-700 px-8 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors text-lg"
+          >
+            Sign in
+          </Link>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="bg-gray-50 py-20">
+        <div className="max-w-5xl mx-auto px-6">
+          <h3 className="text-2xl font-bold text-gray-800 text-center mb-12">
+            Everything you need to manage your job search
+          </h3>
+          <div className="grid grid-cols-3 gap-6">
+            {FEATURES.map(({ icon, title, desc }) => (
+              <div
+                key={title}
+                className="bg-white rounded-xl p-6 shadow-sm border border-gray-100"
+              >
+                <span className="text-3xl">{icon}</span>
+                <h4 className="font-semibold text-gray-800 mt-3 mb-1">
+                  {title}
+                </h4>
+                <p className="text-gray-500 text-sm">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pipeline stages */}
+      <section className="max-w-4xl mx-auto px-6 py-20 text-center">
+        <h3 className="text-2xl font-bold text-gray-800 mb-4">
+          Track every stage of your pipeline
+        </h3>
+        <p className="text-gray-500 mb-10">
+          Move application through stages as you progress
+        </p>
+        <div className="flex justify-center items-center gap-2 flex-wrap">
+          {[
+            { label: "📨 Applied", color: "bg-blue-100 text-blue-800" },
+            { label: "→", color: "text-gray-400" },
+            { label: "🎙️ Interview", color: "bg-purple-100 text-purple-800" },
+            { label: "→", color: "text-gray-400" },
+            { label: "📝 Assessment", color: "bg-yellow-100 text-yellow-800" },
+            { label: "→", color: "text-gray-400" },
+            { label: "🎉 Offer", color: "bg-green-100 text-green-800" },
+          ].map(({ label, color }, i) => (
+            <span
+              key={i}
+              className={`px-4 py-2 rounded-full text-sm font-medium ${color}`}
+            >
+              {label}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-blue-600 py-16 text-center">
+        <h3 className="text-3xl font-bold text-white mb-4">
+          Ready to organise your job search?
+        </h3>
+        <p className="text-blue-100 mb-8">
+          Free to use. No credit card required.
+        </p>
+        <Link
+          href="/register"
+          className="bg-white text-blue-600 px-8 py-3 rounded-xl font-semibold hover:bg-blue-50 transition-colors inline-block"
+        >
+          Create Free Account →
+        </Link>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-gray-100 py-8 text-center text-gray-400 text-sm">
+        <p>
+          Built with Next.js + TypeScript |{" "}
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://github.com/MastaR-svg/job-tracker-api"
             target="_blank"
             rel="noopener noreferrer"
+            className="text-blue-500 hover:underline"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
+            API on GitHub
+          </a>{" "}
+          |{" "}
           <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://job-tracker-api-production-5674.up.railway.app/api/docs"
             target="_blank"
             rel="noopener noreferrer"
+            className="text-blue-500 hover:underline"
           >
-            Documentation
+            API Docs
           </a>
-        </div>
-      </main>
+        </p>
+      </footer>
     </div>
   );
 }

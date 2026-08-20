@@ -54,7 +54,7 @@ export default function DashboardPage() {
               href="/jobs/new"
               className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700"
             >
-              + All Job
+              + Add Job
             </Link>
             <span className="text-gray-500 text-sm">Hi, {user?.username}</span>
             <button
@@ -80,9 +80,16 @@ export default function DashboardPage() {
                 <div className="bg-white rounded-xl shadow-sm p-6 border-gray-100">
                   <p className="text-gray-500 text-sm">Total Applications</p>
                   <p className="text-4xl font-bold text-gray-800 mt-1">
-                    {stats.successRate}%
+                    {stats.totalApplication}
                   </p>
                 </div>
+              </div>
+
+              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <p className="text-gray-500 text-sm">Success Rate</p>
+                <p className="text-4xl font-bold text-green-600 mt-1">
+                  {stats.successRate}%
+                </p>
               </div>
 
               {/*Status Breakdown */}
