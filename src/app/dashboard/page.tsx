@@ -80,7 +80,7 @@ export default function DashboardPage() {
                 <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
                   <p className="text-gray-500 text-sm">Total Applications</p>
                   <p className="text-4xl font-bold text-gray-800 mt-1">
-                    {stats.totalApplication}
+                    {stats.totalApplications}
                   </p>
                 </div>
                 <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
