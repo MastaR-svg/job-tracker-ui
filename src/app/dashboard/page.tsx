@@ -77,19 +77,18 @@ export default function DashboardPage() {
             <>
               {/* Total + Success Rate */}
               <div className="grid grid-cols-2 gap-4 mb-6">
-                <div className="bg-white rounded-xl shadow-sm p-6 border-gray-100">
+                <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
                   <p className="text-gray-500 text-sm">Total Applications</p>
                   <p className="text-4xl font-bold text-gray-800 mt-1">
                     {stats.totalApplication}
                   </p>
                 </div>
-              </div>
-
-              <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
-                <p className="text-gray-500 text-sm">Success Rate</p>
-                <p className="text-4xl font-bold text-green-600 mt-1">
-                  {stats.successRate}%
-                </p>
+                <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                  <p className="text-gray-500 text-sm">Success Rate</p>
+                  <p className="text-4xl font-bold text-green-600 mt-1">
+                    {stats.successRate}%
+                  </p>
+                </div>
               </div>
 
               {/*Status Breakdown */}
