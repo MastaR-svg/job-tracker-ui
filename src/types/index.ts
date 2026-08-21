@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type JobStatus =
   | "applied"
   | "interview"
@@ -31,6 +33,7 @@ export interface JobApplication {
 }
 
 export interface DashboardStats {
+  totalApplications: ReactNode;
   totalApplication: number;
   statusBreakdown: Record<JobStatus, number>;
   recentApplications: JobApplication[];
